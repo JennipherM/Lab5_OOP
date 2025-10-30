@@ -1,0 +1,10 @@
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\bin\Debug\EmployeePayroll.exe.config
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\bin\Debug\EmployeePayroll.exe
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\bin\Debug\EmployeePayroll.pdb
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.csproj.AssemblyReference.cache
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.Form1.resources
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.Properties.Resources.resources
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.csproj.GenerateResource.cache
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.csproj.CoreCompileInputs.cache
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.exe
+C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.pdb
