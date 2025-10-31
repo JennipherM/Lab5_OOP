@@ -33,23 +33,18 @@ namespace EmployeePayroll
         public SalaryEmployee(string fName, string lName, string ssn, float salary) : base(fName, lName, ssn)
         {
             WeeklySalary = salary;
-            Console.WriteLine("Salary Employee Created");
         }
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Salary  |  Weekly Salary: {WeeklySalary}\n";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Salary  |  Weekly Salary: ${WeeklySalary}";
         }
 
-        // NEEDS CHANGED 
         public override float Earnings()
-        {
-            float tmp = 0.0f;
-            Console.WriteLine("test");
-            return tmp;
+        {            
+            return WeeklySalary;
         }
     }
-
     class HourlyEmployee : Employee
     {
         public float HourWage { get; }
@@ -59,21 +54,29 @@ namespace EmployeePayroll
         {
             HourWage = wage;
             HoursWorked = hoursWorked;
-
-            Console.WriteLine("Hourly Employee Created");
         }
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Hourly  |  Hours Worked: {HoursWorked}  |  Wage: {HourWage}\n";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Hourly  |  Hours Worked: {HoursWorked}  |  Wage: ${HourWage}";
         }
 
-        // NEEDS CHANGED 
         public override float Earnings()
         {
-            float tmp = 0.0f;
-            Console.WriteLine("test");
-            return tmp;
+            float totalEarned;
+         
+            if(HoursWorked > 40)
+            {
+                totalEarned = HourWage * 40;
+
+                float overtime = HoursWorked - 40;
+
+                totalEarned += overtime * (HourWage + HourWage / 2);
+
+                return totalEarned;
+            }
+
+            return HourWage * HoursWorked;
         }
     }
     class CommissionEmployee : Employee
@@ -84,21 +87,16 @@ namespace EmployeePayroll
         {
             SalesAmount = salesAmount;
             CommissionRate = commissionRate;
-
-            Console.WriteLine("Commission Employee Created");
         }
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Weekly Sales: {SalesAmount}  |  Commission Rate: {CommissionRate}\n";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Weekly Sales: ${SalesAmount}  |  Commission Rate: {CommissionRate}";
         }
 
-        // NEEDS CHANGED 
         public override float Earnings()
         {
-            float tmp = 0.0f;
-            Console.WriteLine("test");
-            return tmp;
+            return SalesAmount * CommissionRate;
         }
     }
 }

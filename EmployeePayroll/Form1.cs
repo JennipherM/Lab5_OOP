@@ -18,6 +18,8 @@ namespace EmployeePayroll
         {
             InitializeComponent();
         }
+
+        // for add and view buttons
         public void taskOptions_Click(object sender, EventArgs e)
         {
             if (sender == addBtn)
@@ -38,6 +40,7 @@ namespace EmployeePayroll
             infoGroup.Visible = true;
             messageLbl.Text = "";
 
+            //changes employee info fields depending on which type was choosen
             if (sender == salaryRadio)
             {
                 employeeType = "Salary";
@@ -109,9 +112,12 @@ namespace EmployeePayroll
         }
 
         //add all employee info to list box for viewing
-        public void addToListBox(object employee)
+        public void addToListBox(Employee employee)
         {
-            employeeListView.Items.Add(employee.ToString());            
+            employeeListView.Items.Add(employee.ToString() + $"  |  Earnings: ${employee.Earnings()}");
+
+            // add a blank line for readability
+            employeeListView.Items.Add("   ");
         }
     }
 }

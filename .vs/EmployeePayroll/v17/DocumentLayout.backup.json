@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\employeepayroll\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|solutionrelative:employeepayroll\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\employeepayroll\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|solutionrelative:employeepayroll\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|c:\\jennipherm\\c#\\oop_ class\\employeepayroll\\employeepayroll\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|solutionrelative:employeepayroll\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|c:\\jennipherm\\c#\\oop_ class\\employeepayroll\\employeepayroll\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|solutionrelative:employeepayroll\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{993A337E-BD84-4E3B-8457-F5B3526C879B}|EmployeePayroll\\EmployeePayroll.csproj|C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\employeepayroll\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 84,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -43,26 +43,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\EmployeePayroll\\Employee.cs",
               "RelativeDocumentMoniker": "EmployeePayroll\\Employee.cs",
               "ToolTip": "C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\EmployeePayroll\\Employee.cs",
               "RelativeToolTip": "EmployeePayroll\\Employee.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAgwC8AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAwFgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-29T23:30:46.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\EmployeePayroll\\Form1.cs",
               "RelativeDocumentMoniker": "EmployeePayroll\\Form1.cs",
               "ToolTip": "C:\\JennipherM\\C#\\OOP_ Class\\EmployeePayroll\\EmployeePayroll\\Form1.cs",
               "RelativeToolTip": "EmployeePayroll\\Form1.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAADwv3IAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAUwBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-29T23:31:44.674Z",
               "EditorCaption": ""
