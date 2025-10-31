@@ -13,54 +13,59 @@ namespace EmployeePayroll
     public partial class Form1 : Form
     {
         string employeeType;
-
-        // holds all the employees
-        List<List<string>> fullEmployeeList = new List<List<string>>();
-
-        // holds a single employees info
-        List<string> singleEmployeeInfo = new List<string>();
-
-        SalaryEmployee salaryEmployee;
-        HourlyEmployee hourlyEmployee;
-        CommissionEmployee commissionEmployee;
-
+        
         public Form1()
         {
             InitializeComponent();
         }
-
+        public void taskOptions_Click(object sender, EventArgs e)
+        {
+            if (sender == addBtn)
+            {               
+                radioGroup.Visible = true;
+                infoGroup.Visible = false;
+                employeeListView.Visible = false;
+            }
+            else
+            {
+                employeeListView.Visible = true;
+                radioGroup.Visible = false;
+                infoGroup.Visible = false;
+            }
+        }
         public void radioOptions(object sender, EventArgs e)
         {
             infoGroup.Visible = true;
+            messageLbl.Text = "";
 
             if (sender == salaryRadio)
             {
                 employeeType = "Salary";
 
                 lastLbl.Visible = false;
-                lastBox.Visible = false; 
+                lastBox.Visible = false;
 
                 payLbl.Text = "Weekly Salary:";
             }
-            else if (sender == hourlyRadio)
+            else
             {
-                employeeType = "Hourly";
-
                 lastLbl.Visible = true;
                 lastBox.Visible = true;
 
-                payLbl.Text = "Hour Rate:";
-                lastLbl.Text = "Hours Worked:";
-            }
-            else
-            {
-                employeeType = "Commission";
+                if (sender == hourlyRadio)
+                {
+                    employeeType = "Hourly";
 
-                lastLbl.Visible = true;
-                lastBox.Visible = true; 
+                    payLbl.Text = "Hour Rate:";
+                    lastLbl.Text = "Hours Worked:";
+                }
+                else
+                {
+                    employeeType = "Commission";
 
-                payLbl.Text = "Commission Rate:";
-                lastLbl.Text = "Sales Amount:";
+                    payLbl.Text = "Commission Rate:";
+                    lastLbl.Text = "Sales Amount:";
+                }
             }
         }
 
@@ -73,32 +78,26 @@ namespace EmployeePayroll
 
             if(employeeType == "Salary")
             {
-                salaryEmployee = new SalaryEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text));
+                SalaryEmployee salaryEmployee = new SalaryEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text));
 
-                addToList(salaryEmployee);
-                singleEmployeeInfo.Add(salaryEmployee.WeeklySalary.ToString());
-
+                addToListBox(salaryEmployee);
             }
             else if (employeeType == "Hourly")
             {
-                hourlyEmployee = new HourlyEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
+                HourlyEmployee hourlyEmployee = new HourlyEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
+
+                addToListBox(hourlyEmployee);
             }
             else
             {
-                commissionEmployee = new CommissionEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
-            }
+                CommissionEmployee commissionEmployee = new CommissionEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
 
+                addToListBox(commissionEmployee);
+            }
             messageLbl.Text = $"{employeeType} Employee Added!";
             clearBoxes();
         }
 
-        public void addToList(Employee info)
-        {
-            // all employees share these variable names
-            singleEmployeeInfo.Add(info.FirstName);
-            singleEmployeeInfo.Add(info.LastName);
-            singleEmployeeInfo.Add(info.SSN);
-        }
         //clear text boxes
         public void clearBoxes()
         {
@@ -107,6 +106,12 @@ namespace EmployeePayroll
             ssn.Text = "";
             pay.Text = "";
             lastBox.Text = "";
+        }
+
+        //add all employee info to list box for viewing
+        public void addToListBox(object employee)
+        {
+            employeeListView.Items.Add(employee.ToString());            
         }
     }
 }
