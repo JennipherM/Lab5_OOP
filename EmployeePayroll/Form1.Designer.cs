@@ -152,7 +152,7 @@
             // 
             this.messageLbl.AutoSize = true;
             this.messageLbl.Font = new System.Drawing.Font("Microsoft YaHei", 11F, System.Drawing.FontStyle.Bold);
-            this.messageLbl.Location = new System.Drawing.Point(474, 203);
+            this.messageLbl.Location = new System.Drawing.Point(440, 203);
             this.messageLbl.Name = "messageLbl";
             this.messageLbl.Size = new System.Drawing.Size(0, 19);
             this.messageLbl.TabIndex = 11;

@@ -38,6 +38,7 @@ namespace EmployeePayroll
         public void radioOptions(object sender, EventArgs e)
         {
             infoGroup.Visible = true;
+            clearBoxes();
             messageLbl.Text = "";
 
             //changes employee info fields depending on which type was choosen
@@ -77,9 +78,10 @@ namespace EmployeePayroll
             if(firstName.Text == "" || lastName.Text == "" || ssn.Text == "" || pay.Text == "" || (lastBox.Visible == true && lastBox.Text == ""))
             {
                 messageLbl.Text = "Fill in all fields";
+                return;
             }
 
-            if(employeeType == "Salary")
+            if (employeeType == "Salary")
             {
                 SalaryEmployee salaryEmployee = new SalaryEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text));
 
@@ -93,6 +95,12 @@ namespace EmployeePayroll
             }
             else
             {
+                if (Convert.ToSingle(pay.Text) < 0 || Convert.ToSingle(pay.Text) > 1)
+                {
+                    messageLbl.Text = "Commission rate must be a decimal\n(example: 0.25 for 25%)";
+                    return;
+                }
+
                 CommissionEmployee commissionEmployee = new CommissionEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
 
                 addToListBox(commissionEmployee);

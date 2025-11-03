@@ -83,7 +83,7 @@ namespace EmployeePayroll
     {
         public float SalesAmount { get; }
         public float CommissionRate { get; }
-        public CommissionEmployee(string fName, string lName, string ssn, float salesAmount, float commissionRate) : base(fName, lName, ssn)
+        public CommissionEmployee(string fName, string lName, string ssn, float commissionRate, float salesAmount) : base(fName, lName, ssn)
         {
             SalesAmount = salesAmount;
             CommissionRate = commissionRate;
@@ -91,12 +91,13 @@ namespace EmployeePayroll
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Weekly Sales: ${SalesAmount}  |  Commission Rate: {CommissionRate}";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Commission Rate: {CommissionRate}%  Weekly Sales: ${SalesAmount}";
         }
 
         public override float Earnings()
         {
-            return SalesAmount * CommissionRate;
+            //convert to a float, round to the nearest second decimal (0.00 format)
+            return (float)Math.Round((SalesAmount * CommissionRate),2);
         }
     }
 }
