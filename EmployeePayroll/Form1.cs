@@ -4,15 +4,40 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/*
+Modify your basic employee payroll system application to allow data to be stored in flat files.
+
+Your application changes should include the following:
+
+- Create weekly employee payroll files that contain the employees as they are entered.
+     > Selecting a new file location or an existing file. This should make it the "active" file that new entries will be appended.
+    > Write employee entries to the active file. Be sure to include all of the applicable information for their job position.
+    > Write the entries with a consistent delimiting character. You are free to choose your delimiting character, but be sure that it won't interfere with the data.
+     > Give the user feedback when a record is successfully written.
+
+- Required controls to facilitate the reading in of a stored weekly payroll list.
+    > Include controls to select a file to read into the application. You can have this be on the main form, or a secondary form.
+    > Print the employee's name, pay type, and pay amount for that week, per each employee in that weekly payroll list.
+    > Also print the total outgoing pay. This should be a total of all employee's pay for that week.
+- Input validation and error handling for both the entry and retrieval process. Make sure that this is complete, no improper input should make your application crash.
+    > Communicate to the user what the error was and how to remediate it. This may be a mixture of labels, message boxes, or other controls as you see fit.
+    > Make sure to safely open and close files for reading.
+    > Include a way to exit your application, without clicking on the "x" button for the window.
+
+
+*/
 
 namespace EmployeePayroll
 {
     public partial class Form1 : Form
     {
         string employeeType;
+        List<Employee> employeeList = new List<Employee>();
         
         public Form1()
         {
@@ -33,6 +58,8 @@ namespace EmployeePayroll
                 employeeListView.Visible = true;
                 radioGroup.Visible = false;
                 infoGroup.Visible = false;
+
+                displayEmployees(employeeList);
             }
         }
         public void radioOptions(object sender, EventArgs e)
@@ -85,13 +112,13 @@ namespace EmployeePayroll
             {
                 SalaryEmployee salaryEmployee = new SalaryEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text));
 
-                addToListBox(salaryEmployee);
+                addToList(salaryEmployee);
             }
             else if (employeeType == "Hourly")
             {
                 HourlyEmployee hourlyEmployee = new HourlyEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
 
-                addToListBox(hourlyEmployee);
+                addToList(hourlyEmployee);
             }
             else
             {
@@ -103,7 +130,7 @@ namespace EmployeePayroll
 
                 CommissionEmployee commissionEmployee = new CommissionEmployee(firstName.Text, lastName.Text, ssn.Text, Convert.ToSingle(pay.Text), Convert.ToSingle(lastBox.Text));
 
-                addToListBox(commissionEmployee);
+                addToList(commissionEmployee);
             }
             messageLbl.Text = $"{employeeType} Employee Added!";
             clearBoxes();
@@ -120,12 +147,20 @@ namespace EmployeePayroll
         }
 
         //add all employee info to list box for viewing
-        public void addToListBox(Employee employee)
+        public void addToList(Employee employee)
         {
-            employeeListView.Items.Add(employee.ToString() + $"  |  Earnings: ${employee.Earnings()}");
+            employeeList.Add(employee);
+        }
 
-            // add a blank line for readability
-            employeeListView.Items.Add("   ");
+        public void displayEmployees(List<Employee> list)
+        {
+            foreach (Employee emp in list)
+            {
+                employeeListView.Items.Add(emp.ToString() + $"  |  Earnings: ${emp.Earnings()}");
+
+                // add a blank line for readability
+                employeeListView.Items.Add("   ");
+            }
         }
     }
 }
