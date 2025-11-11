@@ -58,7 +58,7 @@ namespace EmployeePayroll
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Hourly  |  Hours Worked: {HoursWorked}  |  Wage: ${HourWage}";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Hourly  |  Wage: ${HourWage}  |  Hours Worked: {HoursWorked}";
         }
 
         public override float Earnings()
@@ -91,7 +91,7 @@ namespace EmployeePayroll
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Commission Rate: {CommissionRate}%  Weekly Sales: ${SalesAmount}";
+            return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Commission Rate: {CommissionRate}%  |  Sales Amount: ${SalesAmount}";
         }
 
         public override float Earnings()

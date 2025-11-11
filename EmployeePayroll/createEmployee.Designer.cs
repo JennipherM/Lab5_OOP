@@ -1,6 +1,6 @@
 ﻿namespace EmployeePayroll
 {
-    partial class Form1
+    partial class createEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,7 @@
             this.salaryRadio = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.infoGroup = new System.Windows.Forms.GroupBox();
+            this.ErrorMessages = new System.Windows.Forms.ListBox();
             this.messageLbl = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
             this.lastBox = new System.Windows.Forms.TextBox();
@@ -50,6 +51,7 @@
             this.employeeListView = new System.Windows.Forms.ListBox();
             this.viewBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.createPayrollBtn = new System.Windows.Forms.Button();
             this.radioGroup.SuspendLayout();
             this.infoGroup.SuspendLayout();
             this.SuspendLayout();
@@ -58,12 +60,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(309, 36);
+            this.label1.Location = new System.Drawing.Point(421, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 39);
+            this.label1.Size = new System.Drawing.Size(278, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Employee Payroll";
+            this.label1.Text = "Create Employees";
             // 
             // radioGroup
             // 
@@ -72,7 +74,7 @@
             this.radioGroup.Controls.Add(this.hourlyRadio);
             this.radioGroup.Controls.Add(this.salaryRadio);
             this.radioGroup.Controls.Add(this.label2);
-            this.radioGroup.Location = new System.Drawing.Point(206, 133);
+            this.radioGroup.Location = new System.Drawing.Point(322, 133);
             this.radioGroup.Name = "radioGroup";
             this.radioGroup.Size = new System.Drawing.Size(476, 153);
             this.radioGroup.TabIndex = 0;
@@ -128,6 +130,7 @@
             // infoGroup
             // 
             this.infoGroup.BackColor = System.Drawing.Color.LightBlue;
+            this.infoGroup.Controls.Add(this.ErrorMessages);
             this.infoGroup.Controls.Add(this.messageLbl);
             this.infoGroup.Controls.Add(this.submitBtn);
             this.infoGroup.Controls.Add(this.lastBox);
@@ -140,13 +143,27 @@
             this.infoGroup.Controls.Add(this.label5);
             this.infoGroup.Controls.Add(this.label4);
             this.infoGroup.Controls.Add(this.label3);
-            this.infoGroup.Location = new System.Drawing.Point(77, 331);
+            this.infoGroup.Location = new System.Drawing.Point(193, 331);
             this.infoGroup.Name = "infoGroup";
-            this.infoGroup.Size = new System.Drawing.Size(735, 287);
+            this.infoGroup.Size = new System.Drawing.Size(735, 322);
             this.infoGroup.TabIndex = 1;
             this.infoGroup.TabStop = false;
             this.infoGroup.Text = "Employee Info";
             this.infoGroup.Visible = false;
+            // 
+            // ErrorMessages
+            // 
+            this.ErrorMessages.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorMessages.FormattingEnabled = true;
+            this.ErrorMessages.HorizontalScrollbar = true;
+            this.ErrorMessages.ItemHeight = 17;
+            this.ErrorMessages.Location = new System.Drawing.Point(386, 22);
+            this.ErrorMessages.Name = "ErrorMessages";
+            this.ErrorMessages.ScrollAlwaysVisible = true;
+            this.ErrorMessages.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.ErrorMessages.Size = new System.Drawing.Size(327, 225);
+            this.ErrorMessages.TabIndex = 12;
+            this.ErrorMessages.Visible = false;
             // 
             // messageLbl
             // 
@@ -160,7 +177,7 @@
             // submitBtn
             // 
             this.submitBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.submitBtn.Location = new System.Drawing.Point(618, 237);
+            this.submitBtn.Location = new System.Drawing.Point(456, 268);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(95, 37);
             this.submitBtn.TabIndex = 10;
@@ -260,9 +277,10 @@
             this.employeeListView.FormattingEnabled = true;
             this.employeeListView.HorizontalScrollbar = true;
             this.employeeListView.ItemHeight = 21;
-            this.employeeListView.Location = new System.Drawing.Point(144, 86);
+            this.employeeListView.Location = new System.Drawing.Point(260, 86);
             this.employeeListView.Name = "employeeListView";
             this.employeeListView.ScrollAlwaysVisible = true;
+            this.employeeListView.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.employeeListView.Size = new System.Drawing.Size(600, 550);
             this.employeeListView.TabIndex = 2;
             this.employeeListView.Visible = false;
@@ -270,7 +288,7 @@
             // viewBtn
             // 
             this.viewBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.viewBtn.Location = new System.Drawing.Point(12, 133);
+            this.viewBtn.Location = new System.Drawing.Point(52, 129);
             this.viewBtn.Name = "viewBtn";
             this.viewBtn.Size = new System.Drawing.Size(95, 37);
             this.viewBtn.TabIndex = 12;
@@ -281,7 +299,7 @@
             // addBtn
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.addBtn.Location = new System.Drawing.Point(12, 86);
+            this.addBtn.Location = new System.Drawing.Point(52, 86);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(95, 37);
             this.addBtn.TabIndex = 13;
@@ -289,12 +307,24 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.taskOptions_Click);
             // 
-            // Form1
+            // createPayrollBtn
+            // 
+            this.createPayrollBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
+            this.createPayrollBtn.Location = new System.Drawing.Point(52, 172);
+            this.createPayrollBtn.Name = "createPayrollBtn";
+            this.createPayrollBtn.Size = new System.Drawing.Size(126, 37);
+            this.createPayrollBtn.TabIndex = 14;
+            this.createPayrollBtn.Text = "Create Payroll";
+            this.createPayrollBtn.UseVisualStyleBackColor = true;
+            this.createPayrollBtn.Click += new System.EventHandler(this.createPayrollBtn_Click);
+            // 
+            // createEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(888, 671);
+            this.ClientSize = new System.Drawing.Size(1057, 712);
+            this.Controls.Add(this.createPayrollBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.viewBtn);
             this.Controls.Add(this.infoGroup);
@@ -303,7 +333,7 @@
             this.Controls.Add(this.employeeListView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form1";
+            this.Name = "createEmployee";
             this.Text = "Form1";
             this.radioGroup.ResumeLayout(false);
             this.radioGroup.PerformLayout();
@@ -338,6 +368,8 @@
         private System.Windows.Forms.ListBox employeeListView;
         private System.Windows.Forms.Button viewBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button createPayrollBtn;
+        private System.Windows.Forms.ListBox ErrorMessages;
     }
 }
 
