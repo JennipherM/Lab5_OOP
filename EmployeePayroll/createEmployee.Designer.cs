@@ -51,7 +51,10 @@
             this.employeeListView = new System.Windows.Forms.ListBox();
             this.viewBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.createPayrollBtn = new System.Windows.Forms.Button();
+            this.createBtn = new System.Windows.Forms.Button();
+            this.fileNameLbl = new System.Windows.Forms.Label();
+            this.readBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.radioGroup.SuspendLayout();
             this.infoGroup.SuspendLayout();
             this.SuspendLayout();
@@ -59,13 +62,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(421, 23);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(381, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 39);
+            this.label1.Size = new System.Drawing.Size(294, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Create Employees";
+            this.label1.Text = "Employee Payroll";
             // 
             // radioGroup
             // 
@@ -74,7 +77,8 @@
             this.radioGroup.Controls.Add(this.hourlyRadio);
             this.radioGroup.Controls.Add(this.salaryRadio);
             this.radioGroup.Controls.Add(this.label2);
-            this.radioGroup.Location = new System.Drawing.Point(322, 133);
+            this.radioGroup.Enabled = false;
+            this.radioGroup.Location = new System.Drawing.Point(290, 176);
             this.radioGroup.Name = "radioGroup";
             this.radioGroup.Size = new System.Drawing.Size(476, 153);
             this.radioGroup.TabIndex = 0;
@@ -143,7 +147,7 @@
             this.infoGroup.Controls.Add(this.label5);
             this.infoGroup.Controls.Add(this.label4);
             this.infoGroup.Controls.Add(this.label3);
-            this.infoGroup.Location = new System.Drawing.Point(193, 331);
+            this.infoGroup.Location = new System.Drawing.Point(161, 374);
             this.infoGroup.Name = "infoGroup";
             this.infoGroup.Size = new System.Drawing.Size(735, 322);
             this.infoGroup.TabIndex = 1;
@@ -277,18 +281,18 @@
             this.employeeListView.FormattingEnabled = true;
             this.employeeListView.HorizontalScrollbar = true;
             this.employeeListView.ItemHeight = 21;
-            this.employeeListView.Location = new System.Drawing.Point(260, 86);
+            this.employeeListView.Location = new System.Drawing.Point(153, 129);
             this.employeeListView.Name = "employeeListView";
             this.employeeListView.ScrollAlwaysVisible = true;
             this.employeeListView.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.employeeListView.Size = new System.Drawing.Size(600, 550);
+            this.employeeListView.Size = new System.Drawing.Size(750, 550);
             this.employeeListView.TabIndex = 2;
             this.employeeListView.Visible = false;
             // 
             // viewBtn
             // 
             this.viewBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.viewBtn.Location = new System.Drawing.Point(52, 129);
+            this.viewBtn.Location = new System.Drawing.Point(23, 219);
             this.viewBtn.Name = "viewBtn";
             this.viewBtn.Size = new System.Drawing.Size(95, 37);
             this.viewBtn.TabIndex = 12;
@@ -299,7 +303,7 @@
             // addBtn
             // 
             this.addBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.addBtn.Location = new System.Drawing.Point(52, 86);
+            this.addBtn.Location = new System.Drawing.Point(23, 176);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(95, 37);
             this.addBtn.TabIndex = 13;
@@ -307,24 +311,58 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.taskOptions_Click);
             // 
-            // createPayrollBtn
+            // createBtn
             // 
-            this.createPayrollBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
-            this.createPayrollBtn.Location = new System.Drawing.Point(52, 172);
-            this.createPayrollBtn.Name = "createPayrollBtn";
-            this.createPayrollBtn.Size = new System.Drawing.Size(126, 37);
-            this.createPayrollBtn.TabIndex = 14;
-            this.createPayrollBtn.Text = "Create Payroll";
-            this.createPayrollBtn.UseVisualStyleBackColor = true;
-            this.createPayrollBtn.Click += new System.EventHandler(this.createPayrollBtn_Click);
+            this.createBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
+            this.createBtn.Location = new System.Drawing.Point(23, 90);
+            this.createBtn.Name = "createBtn";
+            this.createBtn.Size = new System.Drawing.Size(95, 37);
+            this.createBtn.TabIndex = 14;
+            this.createBtn.Text = "Create File";
+            this.createBtn.UseVisualStyleBackColor = true;
+            this.createBtn.Click += new System.EventHandler(this.taskOptions_Click);
+            // 
+            // fileNameLbl
+            // 
+            this.fileNameLbl.AutoSize = true;
+            this.fileNameLbl.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileNameLbl.Location = new System.Drawing.Point(227, 105);
+            this.fileNameLbl.Name = "fileNameLbl";
+            this.fileNameLbl.Size = new System.Drawing.Size(0, 22);
+            this.fileNameLbl.TabIndex = 15;
+            // 
+            // readBtn
+            // 
+            this.readBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
+            this.readBtn.Location = new System.Drawing.Point(23, 133);
+            this.readBtn.Name = "readBtn";
+            this.readBtn.Size = new System.Drawing.Size(95, 37);
+            this.readBtn.TabIndex = 16;
+            this.readBtn.Text = "Read File";
+            this.readBtn.UseVisualStyleBackColor = true;
+            this.readBtn.Click += new System.EventHandler(this.taskOptions_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Font = new System.Drawing.Font("Microsoft YaHei", 11F);
+            this.exitBtn.Location = new System.Drawing.Point(950, 12);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(95, 37);
+            this.exitBtn.TabIndex = 17;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.taskOptions_Click);
             // 
             // createEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1057, 712);
-            this.Controls.Add(this.createPayrollBtn);
+            this.ClientSize = new System.Drawing.Size(1057, 806);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.readBtn);
+            this.Controls.Add(this.fileNameLbl);
+            this.Controls.Add(this.createBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.viewBtn);
             this.Controls.Add(this.infoGroup);
@@ -333,7 +371,9 @@
             this.Controls.Add(this.employeeListView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "createEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.radioGroup.ResumeLayout(false);
             this.radioGroup.PerformLayout();
@@ -368,8 +408,11 @@
         private System.Windows.Forms.ListBox employeeListView;
         private System.Windows.Forms.Button viewBtn;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button createPayrollBtn;
         private System.Windows.Forms.ListBox ErrorMessages;
+        private System.Windows.Forms.Button createBtn;
+        private System.Windows.Forms.Label fileNameLbl;
+        private System.Windows.Forms.Button readBtn;
+        private System.Windows.Forms.Button exitBtn;
     }
 }
 

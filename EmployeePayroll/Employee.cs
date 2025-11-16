@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,8 @@ namespace EmployeePayroll
             return FirstName + " " + LastName + "\n SSN: " + SSN;
         }
 
+        public abstract string InfoToFile();
+
         public abstract float Earnings();
     }
     class SalaryEmployee : Employee
@@ -38,6 +41,12 @@ namespace EmployeePayroll
         public override string ToString()
         {
             return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Salary  |  Weekly Salary: ${WeeklySalary}";
+        }
+
+        // to add info to file with single delimiter 
+        public override string InfoToFile()
+        {
+            return $"{FirstName}|{LastName}|{SSN}|Salary|{WeeklySalary}|{Earnings()}";
         }
 
         public override float Earnings()
@@ -60,7 +69,10 @@ namespace EmployeePayroll
         {
             return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Hourly  |  Wage: ${HourWage}  |  Hours Worked: {HoursWorked}";
         }
-
+        public override string InfoToFile()
+        {
+            return $"{FirstName}|{LastName}|{SSN}|Hourly|{HourWage}|{HoursWorked}|{Earnings()}";
+        }
         public override float Earnings()
         {
             float totalEarned;
@@ -92,6 +104,10 @@ namespace EmployeePayroll
         public override string ToString()
         {
             return $"Name: {FirstName} {LastName}  |  SSN: {SSN}  |  Type: Commission  |  Commission Rate: {CommissionRate}%  |  Sales Amount: ${SalesAmount}";
+        }
+        public override string InfoToFile()
+        {
+            return $"{FirstName}|{LastName}|{SSN}|Commission|{CommissionRate}|{SalesAmount}|{Earnings()}";
         }
 
         public override float Earnings()

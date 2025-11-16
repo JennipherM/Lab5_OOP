@@ -8,4 +8,3 @@ C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePa
 C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.exe
 C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.pdb
 C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.createEmployee.resources
-C:\JennipherM\C#\OOP_ Class\EmployeePayroll\EmployeePayroll\obj\Debug\EmployeePayroll.Payroll.resources
